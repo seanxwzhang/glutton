@@ -1,0 +1,12 @@
+<section>
+  <div class="page-header">
+    <h1>Start a glutton group</h1>
+  </div>
+  <div class="list-group">
+    <div ng-repeat="glutton in vm.gluttons">
+        <input type="text" ng-model="glutton.contact" placeholder="Enter a phone number">
+    </div>
+    <button ng-click="vm.addGlutton(1)">Add group member</button>
+    <button ng-click="vm.submit()">Find restaurants and start voting</button>
+  </div>
+</section>

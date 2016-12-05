@@ -6,7 +6,8 @@
 var config = require('../config'),
   chalk = require('chalk'),
   path = require('path'),
-  mongoose = require('mongoose');
+  mongoose = require('mongoose'),
+  autoIncrement = require('mongoose-auto-increment');
 
 // Load the mongoose models
 module.exports.loadModels = function (callback) {
@@ -33,11 +34,13 @@ module.exports.connect = function (cb) {
 
       // Enabling mongoose debug mode if required
       mongoose.set('debug', config.db.debug);
-
+      
       // Call callback FN
       if (cb) cb(db);
     }
   });
+  // add auto increment support
+  autoIncrement.initialize(db); 
 };
 
 module.exports.disconnect = function (cb) {
